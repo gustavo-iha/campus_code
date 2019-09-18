@@ -1,6 +1,8 @@
 openings = []
 selected_step = 0
 
+SAIR = 5
+
 # Conceito que vai levantar várias questões de boas práticas, porém utilizando apenas para testar uma lógica reaproveitável
 def print_opening(opening)
     print("Título: #{opening[:title]}; Descrição: #{opening[:details]}")
@@ -12,7 +14,7 @@ puts([
     '2 - Ver todas vagas',
     '3 - Consultar vaga',
     '4 - Exportar para arquivo',
-    '5 - Sair',
+    "#{SAIR} - Sair",
     "\n"
 ])
 
