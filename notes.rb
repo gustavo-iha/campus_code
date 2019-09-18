@@ -11,6 +11,7 @@
 
 # Nota pessoal: estados de steps + descrição automatica
 
+
 # objeto "copiado" de um array para outro, na vdd, apenas copia referência. Uma alteração influencia a outra se for um objeto externo
 
 # motivação testes, ex.: objeto salvo como string ou número, tratado como um tipo qualquer -> erro
@@ -20,4 +21,17 @@
 
 # false - apenas nil ou false
 
+# y também retorna e é o caso de uso mais comum - último expressão executada
+# if ...
+#     return x
+# else
+#     y
+# end
 
+# def metodo(param)
+#     return false if param.nil?
+# end
+
+# def metodo(param)
+#     return !param.nil?
+# end
