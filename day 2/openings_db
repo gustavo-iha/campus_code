@@ -6,3 +6,11 @@
 5; teste; teste; 12-10-2019; true; false
 6; teste3; teste3; 12-10-2019; true; true
 7; t; t; 12-10-2019; true; false
+8; t; t; 12-10-2019; true; false
+9; e; e; 12-10-2019; true; false
+10; normal; normal; 12-10-2019; true; false
+11; normal2; normal2; 12-10-2019; true; false
+12; esatgio; esatgio; IAR; false; false
+13; est; est; est; false; false
+14; est; est; est; false; false
+15; est; est; est; est; 12-10-2019

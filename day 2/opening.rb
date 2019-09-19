@@ -21,8 +21,8 @@ class Opening
         @visible ? 'Pública' : 'Privada'
     end
 
-    def print()
-        puts("Título: #{title}, Descrição: #{details}, Validade: #{expiration}, Visibilidade: #{visible_text()}")
+    def to_s()
+        "Título: #{title}, Descrição: #{details}, Validade: #{expiration}, Visibilidade: #{visible_text()}"
     end
 
     def set_private!()

@@ -1,4 +1,5 @@
 require_relative "opening"
+require_relative "internship_opening"
 
 class Opening_collection
 
@@ -16,6 +17,12 @@ class Opening_collection
         new_opening
     end
 
+    def create_internship(id, title, details, accepted_courses, date_end, expiration = '12-10-2019', active = true, visible = false)
+        new_opening = Intership_opening.new(id || openings.length, title, details, accepted_courses, date_end, expiration, active, visible)
+        @openings << new_opening
+        new_opening
+    end
+        
     def create_from_string(text)
         values = text.split("; ").map {|value| value.strip()}
         id = values[0].to_i()
@@ -37,7 +44,7 @@ class Opening_collection
     end
 
     def print_all()
-        self.all.each {|opening| opening.print()}
+        self.all.each {|opening| puts(opening)}
     end
 
     def search_by_keyword(search)
