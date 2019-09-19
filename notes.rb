@@ -35,3 +35,17 @@
 # def metodo(param)
 #     return !param.nil?
 # end
+
+# object.is_a?(class)
+
+# meta programação
+# object.methods()
+
+# object: self.val => escôpo público do objeto
+
+# object.dup() or .clone() => duplica objeto
+
+# ---- Herança ----
+
+# Class.ancestors -< Object, Kernel, BasicObject
+

@@ -13,6 +13,10 @@ class Opening
         @visible = visible
     end
 
+    def search_contains?(text)
+        title.downcase.include?(text.downcase) || details.downcase.include?(text.downcase)
+    end
+
     def visible_text()
         @visible ? 'Pública' : 'Privada'
     end

@@ -41,7 +41,7 @@ class Opening_collection
     end
 
     def search_by_keyword(search)
-        self.all.select {|opening| (opening.title.downcase + opening.details.downcase).include?(search.downcase)}
+        self.all.select {|opening| opening.search_contains?(search)}
     end
 
     def get_active()

@@ -9,21 +9,25 @@ def print_opening(opening)
     print("Título: #{opening[:title]}; Descrição: #{opening[:details]}")
 end
 
+def print_menu()
+    puts([
+        "\n",
+        'Selecione uma opção:',
+        '1 - Adicionar nova vaga',
+        '2 - Ver todas vagas',
+        '3 - Consultar vaga',
+        '4 - Exportar para arquivo',
+        '5 - Alterar visibilidade das vagas',
+        "#{SAIR} - Sair",
+        "\n"
+    ])
+end
+
 puts('---- Inicializando ----')
 openings = Opening_collection.new("Vendas")
 openings.load()
 puts("---- Pronto ----\n")
-
-puts([
-    'Selecione uma opção:',
-    '1 - Adicionar nova vaga',
-    '2 - Ver todas vagas',
-    '3 - Consultar vaga',
-    '4 - Exportar para arquivo',
-    '5 - Alterar visibilidade das vagas',
-    "#{SAIR} - Sair",
-    "\n"
-])
+print_menu()
 
 while selected_step != SAIR do
     selected_step = gets.to_i()
@@ -67,5 +71,6 @@ while selected_step != SAIR do
         puts 'Saindo'
     end
 
+    print_menu()
     print("\nEscolha uma nova opção: ")
 end
