@@ -49,3 +49,7 @@
 
 # Class.ancestors -< Object, Kernel, BasicObject
 
+# Costuma-se falar de especialização
+
+# Ao chamar um método de um objeto, Ruby executa uma operação do Lookup, buscando a primeira ocorrência
+# do método entre as classes pai

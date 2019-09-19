@@ -11,14 +11,14 @@ class Opening_collection
         @file_name = "openings_db"
     end
 
-    def create(id, title, details, expiration = '12-10-2019', active = true, visible = false)
-        new_opening = Opening.new(id || openings.length, title, details, expiration, active, visible)
+    def create(id, title, details, company = '', expiration = '12-10-2019', active = true, visible = false)
+        new_opening = Opening.new(id || openings.length, title, details, company, expiration, active, visible)
         @openings << new_opening
         new_opening
     end
 
-    def create_internship(id, title, details, accepted_courses, date_end, expiration = '12-10-2019', active = true, visible = false)
-        new_opening = Intership_opening.new(id || openings.length, title, details, accepted_courses, date_end, expiration, active, visible)
+    def create_internship(id, title, details, company, accepted_courses, date_end, expiration = '12-10-2019', active = true, visible = false)
+        new_opening = Intership_opening.new(id || openings.length, title, details, company, accepted_courses, date_end, expiration, active, visible)
         @openings << new_opening
         new_opening
     end
@@ -31,8 +31,9 @@ class Opening_collection
         expiration = values[3]
         active = (values[4] == "true")
         visible = (values[5] == "true")
+        company = values[6]
 
-        self.create(id, title, details, expiration, active, visible)
+        self.create(id, title, details, company, expiration, active, visible)
     end
 
     def by_id(id)

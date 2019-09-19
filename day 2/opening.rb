@@ -1,13 +1,15 @@
 require_relative "opening"
+require_relative "company_collection"
 
 class Opening
     
-    attr_accessor :id, :title, :details, :expiration, :visible, :active
+    attr_accessor :id, :title, :details, :company, :expiration, :visible, :active
 
-    def initialize(id, title, details, expiration, active, visible)
+    def initialize(id, title, details, company, expiration, active, visible)
         @id = id
         @title = title
         @details = details
+        @company = company
         @expiration = expiration
         @active = active
         @visible = visible
@@ -22,7 +24,7 @@ class Opening
     end
 
     def to_s()
-        "Título: #{title}, Descrição: #{details}, Validade: #{expiration}, Visibilidade: #{visible_text()}"
+        "Título: #{title}, Descrição: #{details}, Validade: #{expiration}, Visibilidade: #{visible_text()}, Empresa: #{company}"
     end
 
     def set_private!()
@@ -38,6 +40,6 @@ class Opening
     end
 
     def serialize()
-        "#{id}; #{title}; #{details}; #{expiration}; #{active}; #{visible}"
+        "#{id}; #{title}; #{details}; #{expiration}; #{active}; #{visible}; #{company}"
     end
 end

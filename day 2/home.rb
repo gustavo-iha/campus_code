@@ -1,8 +1,9 @@
 require_relative "opening_collection"
+require_relative "company_collection"
 
 selected_step = 0
 
-SAIR = 6
+SAIR = 7
 
 # Conceito que vai levantar várias questões de boas práticas, porém utilizando apenas para testar uma lógica reaproveitável
 def print_opening(opening)
@@ -16,8 +17,9 @@ def print_menu()
         '1 - Adicionar nova vaga',
         '2 - Ver todas vagas',
         '3 - Consultar vaga',
-        '4 - Exportar para arquivo',
-        '5 - Alterar visibilidade das vagas',
+        '4 - Alterar empresa de vagas',
+        '5 - Menu de empresas',
+        '6 - Alterar visibilidade das vagas',
         "#{SAIR} - Sair",
         "\n"
     ])
@@ -26,6 +28,9 @@ end
 puts('---- Inicializando ----')
 openings = Opening_collection.new("Vendas")
 openings.load()
+companies = Company_collection.new()
+companies.create(nil, "Revelo")
+companies.create(nil, "QuintoAndar")
 puts("---- Pronto ----\n")
 print_menu()
 
@@ -82,7 +87,39 @@ while selected_step != SAIR do
         puts("\n #{searched_openings.length} vagas encontradas\n")
         searched_openings.each {|opening| puts(opening)}
     elsif selected_step == 4
+        puts("Selecione uma vaga digitando seu id:")
+        openings.all.each {|opening| puts("#{opening.id}: #{opening.title}")}
+        puts("\n")
+        id_to_change = gets.to_i()
+        opening_to_change = openings.by_id(id_to_change)
+        if opening_to_change.nil?()
+            puts("Id inválido")
+        else
+            puts(opening_to_change)
+        end
+        puts("Empresas disponíveis: \n")
+        companies.print_all()
+        puts("\n")
+        company_id = gets.to_i()
+        selected_company = companies.by_id(company_id)
+        if selected_company.nil?()
+            puts("Id inválido")
+        else
+            opening_to_change.company = selected_company.name
+            openings.save_to_file()
+        end
     elsif selected_step == 5
+        print("Ver empresas (1) ou cadastrar empresa (2): ")
+        company_menu_type = gets.to_i()
+        if company_menu_type == 1
+            companies.print_all()
+        elsif company_menu_type == 2
+            companies.create_from_console()
+        else
+            puts("Opção inválida\n")
+            return nil
+        end
+    elsif selected_step == 6
         puts("Digite o id da vaga que deseja alterar a visibilidade")
         openings.all.each {|opening| puts("#{opening.id}: #{opening.title}")}
         puts("\n")
