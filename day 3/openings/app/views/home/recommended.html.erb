@@ -1,0 +1,12 @@
+<h1>Olá</h1>
+
+<% dia = 6 %>
+
+<%= 'Dia de maldade?' if dia == 6 %>
+<h2>Ideias do que fazer (recomendações do Iha)</h2>
+
+<% Idea.all.select {|idea| idea.recommended}.each do |idea| %>
+<div>
+    <%= idea.title %>
+</div>
+<% end %>

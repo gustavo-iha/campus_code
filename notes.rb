@@ -53,3 +53,18 @@
 
 # Ao chamar um método de um objeto, Ruby executa uma operação do Lookup, buscando a primeira ocorrência
 # do método entre as classes pai
+
+# ---- Conceitos ----
+
+# Ruby - uso de memória RAM base maior do que a maioria das outras frameworks
+
+# rubyonrails lectures - doctrine
+
+
+
+
+# DDD não -> ORM ActiveRecord (outros que existem: Hibernate, Entity, JPA)
+
+# Primeiro "Model.new" -> Rails pesquisa no DB as chaves do modelo e coloca em cache
+
+# Escôpo de uma variável de instância é limitado ao objeto individual

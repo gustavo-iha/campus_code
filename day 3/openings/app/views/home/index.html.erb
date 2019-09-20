@@ -1,0 +1,15 @@
+<h1>Olá</h1>
+
+<% dia = 6 %>
+
+<%= 'Dia de maldade?' if dia == 6 %>
+
+<h2>Ideias do que fazer</h2>
+
+<% Idea.all.each do |idea| %>
+<div>
+    <%= idea.title %>
+</div>
+<% end %>
+
+<p>Ver recomendações do Iha: <%= link_to "Quero", @recommended_ideas%></p>
