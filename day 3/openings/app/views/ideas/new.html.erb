@@ -1,0 +1,14 @@
+<h1>Nova ideia</h1>
+
+<%# form_for quando o formulário se relaciona a um model específico
+form_tag  em outros casos %>
+
+<%= form_with model: @idea, local: true do |form| %>
+    <%= form.label :title, 'Título' %>
+    <%= form.text_field :title %>
+    <%= form.label :details, 'Detalhes' %>
+    <%= form.text_area :details %>
+    <%= form.label :recommended, 'Recomendada?' %>
+    <%= form.check_box :recommended %>
+    <%= form.submit 'Salvar' %>
+<% end %>

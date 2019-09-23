@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'home#index'
-  get '/recommended', to: 'home#recommended', as: 'recommended_ideas'
+  root to: 'ideas#index'
+
+  resources :ideas, only: [:new, :create]
 end

@@ -68,3 +68,8 @@
 # Primeiro "Model.new" -> Rails pesquisa no DB as chaves do modelo e coloca em cache
 
 # Escôpo de uma variável de instância é limitado ao objeto individual
+
+
+# %i[new create show] = [:new, :create, :show]
+
+Vaga.where(createdAt: 1.day.ago..1.day.from_now)

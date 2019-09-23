@@ -1,0 +1,17 @@
+<h1>Olá</h1>
+
+<% dia = 6 %>
+
+<%= 'Dia de maldade?' if dia == 6 %>
+
+<h2>Ideias do que fazer</h2>
+
+<% Idea.all.each do |idea| %>
+<div>
+    <%= idea.title %>
+</div>
+<% end %>
+
+<%# <a href="#">Nova ideia</a> %>
+<%# <%= link_to 'Adicionar ideia', 'https://google.com', target: '_blank', class: 'btn btn-primary' %> %>
+<%= link_to 'Adicionar ideia', new_idea_path %>
